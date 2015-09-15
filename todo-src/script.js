@@ -80,6 +80,10 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
+	$scope.markComplete = function(item) {
+		// to-implement...
+	}
+	
 });
 
 /*************************
