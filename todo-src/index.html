@@ -3,7 +3,14 @@
 
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="http://silviomoreto.github.io/bootstrap-select/bootstrap-select.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script src="./bootstrap-select.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
@@ -16,6 +23,15 @@
         <div class="input-group">
           <input type="text" ng-keypress="enterKey($event)" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
+
+
+          <select id='select'class="selectpicker" data-width="110px" ng-model="newPriority">
+            <option style='color: yellow' data-icon="glyphicon-flag"><span class="glyphicon glyphicon-flag" value='Low Priority'>Low</span></option>
+            <option style='color: blue' data-icon="glyphicon-flag" value='Normal Priority'><span class="glyphicon glyphicon-flag">Normal</span></option>
+            <option style='color: red' data-icon="glyphicon-flag" value='High Priority'><span class="glyphicon glyphicon-flag">High</span></option>
+          </select>
+
+
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -43,9 +59,15 @@
           </button>
           
           <!-- Edit Button -->
-          <button class="btn btn-warning pull-right" type="button" ng-click="editItem(do)">
+        <div class='pull-right' style='display: inline; padding-right: .5em' >
+          <button class="btn btn-warning"  type="button" ng-click="editItem(do)">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
           </button>
+        </div>
+
+        <div style='display: inline; padding-right: 0.5em' class='pull-right'>
+          <button class="btn btn-info">{{priorities[$index]}}</button>
+        </div> 
 
         </li>
 
@@ -53,6 +75,10 @@
       </ul>
     </div>
     
+<script>
+$('select[name=selValue]').val(1);$('.selectpicker').selectpicker('refresh');
+</script>
+
   </body>
 
 </html>
