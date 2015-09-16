@@ -9,6 +9,9 @@ myApp.controller('MainCtrl', function ($scope){
 	$scope.newItem = "";
 	$scope.priority= '';
 	
+	// Array to hold state of to-do items (tasks) - e.g. whether they are completed or not
+	$scope.taskCompletionState = [false, false];
+	
 	$scope.priorities=["High Priority","Low Priority"];
 	
 	//Creating the variable for editing items.
@@ -44,6 +47,7 @@ myApp.controller('MainCtrl', function ($scope){
 				$scope.priority = "";
 			}
 		}
+		$scope.taskCompletionState.push(false);
 	}
 	
 	// "Delete Item" Function
@@ -81,15 +85,19 @@ myApp.controller('MainCtrl', function ($scope){
 	}
 	
 	$scope.markComplete = function(item) {
-		// to-implement...
+		//console.log("in complete");
+		var index = $scope.todos.indexOf(item);
+		//console.log("index of just-clicked item:" + index);
+		//alert("task id:" + index);
+		//console.log("pre-click completion state of just-clicked item:" + $scope.taskCompletionState[index]);
+		$scope.taskCompletionState[index] = true;
+		//console.log("completion state of just-clicked item:" + $scope.taskCompletionState[index]);
 	}
 	
 });
 
 /*************************
 * Homework (not rly):
-* - "enter" button functionality instead of clicking button
-* - edit button functionality
 * - button to mark item as "complete"
 * - have a total number of items at the top
 * - make it prettier
