@@ -1,5 +1,3 @@
-// Code goes here
-
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
@@ -29,6 +27,7 @@ myApp.controller('MainCtrl', function ($scope){
 			$scope.newItem = "";
 		}
 	
+  //Setting item priority level
 		$scope.priority = $('#select').val();
 		//alert( $scope.priority);
 		if($scope.priority==="Low"){
@@ -89,6 +88,18 @@ myApp.controller('MainCtrl', function ($scope){
 		console.log("in complete");
 		$scope.completedItems.push(item);
 		$scope.deleteItem(item);
+	}
+
+  	//Function to clear items that have been designated complete
+	$scope.clearCompleted = function(){
+		console.log("in clearCompleted");
+		for (var index in $scope.todos) //go through the array 
+		{
+			if ( $scope.taskCompletionState[index] == true) //If the item at that index has been completed,
+			{
+				$scope.deleteItem($scope.todos[index]); //Call the delete method to remove that item.
+			}
+		}
 	}
 	
 });

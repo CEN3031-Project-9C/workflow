@@ -1,5 +1,3 @@
-/* Styles go here */
-
 body {
 	background: url(../todo-src/bg.jpg);
 	background-size: cover;
@@ -10,6 +8,11 @@ body {
 #hide {
 	display:none;
 }
+/* used to position the Clear Completed button*/
+#clearCompleted
+{
+  margin-top: 15px; 
+}
 
 h1, h2, h3, h4, h5, h6 {
 	color:white;
@@ -18,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+
 }
 
 /** Formatting for icons in to-do items **/
