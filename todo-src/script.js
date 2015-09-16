@@ -89,18 +89,15 @@ myApp.controller('MainCtrl', function ($scope){
 		$scope.completedItems.push(item);
 		$scope.deleteItem(item);
 	}
-
-  	//Function to clear items that have been designated complete
-	$scope.clearCompleted = function(){
-		console.log("in clearCompleted");
-		for (var index in $scope.todos) //go through the array 
-		{
-			if ( $scope.taskCompletionState[index] == true) //If the item at that index has been completed,
-			{
-				$scope.deleteItem($scope.todos[index]); //Call the delete method to remove that item.
-			}
-		}
-	}
+	
+    //Function to clear items that have been designated complete
+    $scope.clearCompleted = function(){
+        console.log("in clearCompleted");
+        for (var index in $scope.completedItems) //go through the array 
+        {
+            $scope.completedItems.splice(0, $scope.completedItems.length);
+        }
+    }
 	
 });
 
