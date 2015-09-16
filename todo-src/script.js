@@ -5,14 +5,14 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
 
 	// Default to-do's
-	$scope.todos = ["Learn Angular", "Learn node"];
+	$scope.todos = ["Learn AngularJS", "Learn NodeJS", "Walk Dog", "Take Shower"];
 	$scope.newItem = "";
 	$scope.priority= '';
 	
 	// Array to hold state of to-do items (tasks) - e.g. whether they are completed or not
-	$scope.taskCompletionState = [false, false];
+	$scope.taskCompletionState = [false, false, false, false];
 	
-	$scope.priorities=["High Priority","Low Priority"];
+	$scope.priorities=["Medium Priority","Medium Priority","Medium Priority", "High Priority"];
 	
 	//Creating the variable for editing items.
 	//$scope.editing is necessary to have angular know it needs to update the input.
@@ -56,6 +56,7 @@ myApp.controller('MainCtrl', function ($scope){
 		var index = $scope.todos.indexOf(item);
 		$scope.todos.splice(index, 1);
 		$scope.priorities.splice(index, 1);
+		$scope.taskCompletionState.splice(index, 1);
 	}
 	
 	// This function will edit an item.
@@ -85,13 +86,14 @@ myApp.controller('MainCtrl', function ($scope){
 	}
 	
 	$scope.markComplete = function(item) {
-		//console.log("in complete");
+		console.log("in complete");
 		var index = $scope.todos.indexOf(item);
 		//console.log("index of just-clicked item:" + index);
 		//alert("task id:" + index);
 		//console.log("pre-click completion state of just-clicked item:" + $scope.taskCompletionState[index]);
 		$scope.taskCompletionState[index] = true;
 		//console.log("completion state of just-clicked item:" + $scope.taskCompletionState[index]);
+		
 	}
 	
 });

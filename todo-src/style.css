@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /** Formatting for complete button / complete notification **/
 
+.comp-noti {
+	display: none;
+}
+
 .comp-noti p {
 	font-size: 14px;
 	margin: 7px 0 0 0;

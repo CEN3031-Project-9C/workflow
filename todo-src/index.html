@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 
-  <body ng-app="app">
+	<body ng-app="app">
 	  
     <h1 class="text-center">My Little To-Do App</h1>
     
@@ -56,7 +56,7 @@
 				</button>
 		
 				<!-- To-do item priority -->
-				<button class="btn btn-info pull-right spaced-button" ng-show="taskCompletionState">{{priorities[$index]}}</button>
+				<button class="btn btn-info pull-right spaced-button pri-lis" ng-show="taskCompletionState">{{priorities[$index]}}</button>
 				
 				<div class="pull-right comp-noti spaced-button ng-hide" ng-hide="taskCompletionState">
 					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Completed</p>
@@ -75,6 +75,6 @@
 	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="select.js"></script>
 
-  </body>
+  	</body>
 
 </html>
