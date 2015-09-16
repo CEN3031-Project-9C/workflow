@@ -9,9 +9,9 @@
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 
-  <body ng-app="app">
+	<body ng-app="app">
 	  
-    <h1 class="text-center">My little to do app!</h1>
+    <h1 class="text-center">My Little To-Do App</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
@@ -27,32 +27,48 @@
 			</span>
 		</form>
         
-		<h2 class="text-center">stuff i gotta do asap</h2>
+		<h2 class="text-center">Tasks I Must Complete ASAP!</h2>
       
+		<!-- List of to-do items -->
 		<ul class="list-group">
 			<li class="list-group-item clearfix" ng-repeat="do in todos track by $index">
+				<!-- To-do item title -->
 				<span class="visible">{{do}}</span>
 		
 				<!-- When pressing the edit button, this input will show up. -->
-				<div class="input-group" id="hide">
+				<div id="hide" class="input-group edi-inp">
 					<input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
 				</div>
 		
-				<button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+				<!-- Delete button -->
+				<button class="btn btn-danger pull-right del-but" type="button" ng-click="deleteItem(do)">
 					<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
 				</button>
 		
+				<!-- Complete button -->
+				<button class="btn btn-success pull-right spaced-button comp-but" type="button" ng-click="markComplete(do)">
+					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+				</button>
+		
 				<!-- Edit Button -->
-				<div class='pull-right' style='display: inline; padding-right: .5em' >
-					<button class="btn btn-warning"  type="button" ng-click="editItem(do)">
-						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-					</button>
+				<button class="btn btn-warning pull-right spaced-button edi-but"  type="button" ng-click="editItem(do)">
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+				</button>
+		
+				<!-- To-do item priority -->
+				<button class="btn btn-info pull-right spaced-button pri-lis">{{priorities[$index]}}</button>
+				
+				<div class="pull-right comp-noti spaced-button ng-hide">
+					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Completed</p>
 				</div>
+			</li>
+		</ul>
 		
+		<h3 class="text-center">Completed Items</h3>
 		
-				<div style='display: inline; padding-right: 0.5em' class='pull-right'>
-					<button class="btn btn-info">{{priorities[$index]}}</button>
-				</div> 
+		<ul class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="items in completedItems track by $index">
+				<span class="visible">{{items}}</p>
 			</li>
 		</ul>
 
@@ -67,6 +83,6 @@
 	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="select.js"></script>
 
-  </body>
+  	</body>
 
 </html>

@@ -20,3 +20,23 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
 }
 
+/** Formatting for icons in to-do items **/
+
+.spaced-button {
+	margin-right: 5px;
+}
+
+/** Formatting for complete button / complete notification **/
+
+.comp-noti {
+	display: none;
+}
+
+.comp-noti p {
+	font-size: 14px;
+	margin: 7px 0 0 0;
+}
+
+.comp-noti p .glyphicon {
+	color: #2ecc71;
+}
