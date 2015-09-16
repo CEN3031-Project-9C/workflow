@@ -36,7 +36,7 @@
 				<span class="visible">{{do}}</span>
 		
 				<!-- When pressing the edit button, this input will show up. -->
-				<div id="hide" class="input-group edi-inp" ng-show="taskCompletionState">
+				<div id="hide" class="input-group edi-inp">
 					<input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
 				</div>
 		
@@ -46,21 +46,29 @@
 				</button>
 		
 				<!-- Complete button -->
-				<button class="btn btn-success pull-right spaced-button comp-but" type="button" ng-click="markComplete(do)" ng-show="taskCompletionState">
+				<button class="btn btn-success pull-right spaced-button comp-but" type="button" ng-click="markComplete(do)">
 					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
 				</button>
 		
 				<!-- Edit Button -->
-				<button class="btn btn-warning pull-right spaced-button edi-but"  type="button" ng-click="editItem(do)" ng-show="taskCompletionState">
+				<button class="btn btn-warning pull-right spaced-button edi-but"  type="button" ng-click="editItem(do)">
 					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 				</button>
 		
 				<!-- To-do item priority -->
-				<button class="btn btn-info pull-right spaced-button pri-lis" ng-show="taskCompletionState">{{priorities[$index]}}</button>
+				<button class="btn btn-info pull-right spaced-button pri-lis">{{priorities[$index]}}</button>
 				
-				<div class="pull-right comp-noti spaced-button ng-hide" ng-hide="taskCompletionState">
+				<div class="pull-right comp-noti spaced-button ng-hide">
 					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Completed</p>
 				</div>
+			</li>
+		</ul>
+		
+		<h3 class="text-center">Completed Items</h3>
+		
+		<ul class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="items in completedItems track by $index">
+				<span class="visible">{{items}}</p>
 			</li>
 		</ul>
 

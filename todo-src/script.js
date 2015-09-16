@@ -9,8 +9,8 @@ myApp.controller('MainCtrl', function ($scope){
 	$scope.newItem = "";
 	$scope.priority= '';
 	
-	// Array to hold state of to-do items (tasks) - e.g. whether they are completed or not
-	$scope.taskCompletionState = [false, false, false, false];
+	// Array of completed to-do items (displayed in "Completed Items" section)
+	$scope.completedItems = ["Brush my Teeth"];
 	
 	$scope.priorities=["Medium Priority","Medium Priority","Medium Priority", "High Priority"];
 	
@@ -18,6 +18,8 @@ myApp.controller('MainCtrl', function ($scope){
 	//$scope.editing is necessary to have angular know it needs to update the input.
 	$scope.editing = {};
 	$scope.editing.editedItem = "";
+	
+		
 	
 	// "Add Item" Function
 	$scope.addItem = function(){
@@ -47,7 +49,6 @@ myApp.controller('MainCtrl', function ($scope){
 				$scope.priority = "";
 			}
 		}
-		$scope.taskCompletionState.push(false);
 	}
 	
 	// "Delete Item" Function
@@ -56,7 +57,6 @@ myApp.controller('MainCtrl', function ($scope){
 		var index = $scope.todos.indexOf(item);
 		$scope.todos.splice(index, 1);
 		$scope.priorities.splice(index, 1);
-		$scope.taskCompletionState.splice(index, 1);
 	}
 	
 	// This function will edit an item.
@@ -87,13 +87,8 @@ myApp.controller('MainCtrl', function ($scope){
 	
 	$scope.markComplete = function(item) {
 		console.log("in complete");
-		var index = $scope.todos.indexOf(item);
-		//console.log("index of just-clicked item:" + index);
-		//alert("task id:" + index);
-		//console.log("pre-click completion state of just-clicked item:" + $scope.taskCompletionState[index]);
-		$scope.taskCompletionState[index] = true;
-		//console.log("completion state of just-clicked item:" + $scope.taskCompletionState[index]);
-		
+		$scope.completedItems.push(item);
+		$scope.deleteItem(item);
 	}
 	
 });
